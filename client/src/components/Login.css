@@ -1,6 +1,5 @@
 .login {
     height: 100vh;
-    width: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,6 +11,8 @@
     text-align: center;
     background-color: #dcdcdc;
     padding: 30px;
+    /* Center the container horizontally */
+    margin: 0 auto;
 }
 
 .login__textBox {
@@ -30,7 +31,7 @@
     border: none;
     color: white;
     background-color: black;
-  }
+}
 
 .login__google {
     background-color: #4285f4;

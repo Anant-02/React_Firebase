@@ -25,8 +25,8 @@ function Register() {
         if(user) navigate("/dashboard");
     }, [user, loading, navigate]);
     return (
-        <div>
-            <div>
+        <div className="register">
+            <div className="register__container"> 
                 <input 
                     type="text"
                     className="register__textBox"
