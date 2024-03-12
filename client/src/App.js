@@ -1,6 +1,9 @@
 import './App.css';
-import Dashboard from './components/Dashboard';
 import Login from './components/Login';
+import Testing from './components/Testing';
+import Register from './components/Register';
+import Reset from './components/Reset';
+import Dashboard from './components/Dashboard';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 function App() {

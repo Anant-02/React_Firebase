@@ -1,22 +1,19 @@
 import React, {useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import {auth, signInWithEmailAndPassword, signInWithGoogle} from "../firebase";
+import {auth, logInWithEmailAndPassword, signInWithGoogle} from "../firebase";
 import {useAuthState} from "react-firebase-hooks/auth";
 import "./Login.css";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
 
-    useEffect(() =>  {
-        if (loading) {
-            //loading screen
-            return;
-        }
-        if (user) navigate("/dashboard");
-    }, [user, loading]);
+    useEffect(() => {
+        if(loading) return;
+        if(user) navigate("/dashboard");
+    }, [user, loading, navigate]);
 
     return (
         <div className="login">
@@ -37,12 +34,16 @@ function Login() {
                 />
                 <button
                     className="login__btn"
-                    onClick={() => signInWithEmailAndPassword(email, password)}
-                ></button>
+                    onClick={() => logInWithEmailAndPassword(email, password)}
+                >
+                    Login
+                </button>
                 <button
                     className="login__btn login__google"
-                    onClick={signInWithEmailAndPassword(email, password)}
-                ></button>
+                    onClick={() => signInWithGoogle(email, password)}
+                >
+                    Login with Google
+                </button>
                 <div>
                     <Link to="/reset">Forgot Password</Link>
                 </div>
